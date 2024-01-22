@@ -2,26 +2,73 @@
 
 This is the coding style tools config I use everyday on my projects.
 
-## PHPCS
+it includes :
+- PHPCS for code sniffing.
+- PHPStan for static bug finding into code.
+- PHPMD for static performance analysis (complexity, unused expressions, optimizing).
 
-PHPCS for code sniffing : 
+## Installation
+
+Installation with composer :
 
 ```bash
-$ ./vendor/bin/phpcs
+composer require etsglobal/php-static-analysis --dev
 ```
 
-## PHPStan
+## Usage
 
-PHPStan for static bug finding into code.
+### PHPCS
 
-```bash
-$ ./vendor/bin/phpstan
+In your project, create a `phpcs.xml` file and fill it up with :
+
+```xml
+<?xml version="1.0"?>
+<ruleset name="Arty Coding Standard" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:noNamespaceSchemaLocation="../../vendor/squizlabs/php_codesniffer/phpcs.xsd">
+    <rule ref="./vendor/arty/php-coding-standard/lib/phpcs/phpcs.xml" />
+</ruleset>
 ```
 
-## PHPMD
-
-PHPMD for static performance analysis (complexity, unused expressions, optimizing).
-
+Run it with :
 ```bash
-$ ./vendor/bin/phpmd
+$ ./vendor/bin/phpcs src
+```
+
+### PHPStan
+
+In your project, create a `phpstan.neon` file and fill it up with :
+
+```neon
+includes:
+    - vendor/arty/php-coding-standard/lib/phpstan/phpstan.neon
+```
+
+Run it with :
+```bash
+$ ./vendor/bin/phpstan analyse --level=max src
+```
+
+### PHPMD
+
+In your project, create a `pphmd.xml` file and fill it up with :
+
+```xml
+<?xml version="1.0"?>
+<ruleset name="Arty ruleset"
+         xmlns="http://pmd.sf.net/ruleset/1.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd"
+         xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd">
+    <description>
+        Arty ruleset
+    </description>
+
+    <rule ref="./vendor/etsglobal/php-static-analysis/lib/phpmd/phpmd.xml"/>
+</ruleset>
+```
+
+Run it with :
+```bash
+$ ./vendor/bin/phpmd src text phpmd.xml
 ```
