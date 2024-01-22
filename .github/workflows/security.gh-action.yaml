@@ -1,0 +1,15 @@
+name: Security checks - Github Action
+
+on:
+  pull_request:
+    paths: [.github/workflows/**]
+
+jobs:
+  ci_harden_security:
+    name: Ensure SHA pinned actions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch lastest changes
+        uses: actions/checkout@v4
+      - name: Ensure SHA pinned actions
+        uses: zgosalvez/github-actions-ensure-sha-pinned-actions@v3

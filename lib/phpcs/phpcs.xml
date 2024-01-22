@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ruleset name="Default configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../vendor/squizlabs/php_codesniffer/phpcs.xsd">
+    <arg name="extensions" value="php"/>
+    <arg name="colors" />
+
+    <!-- Show progress of the run -->
+    <arg value="sp"/>
+
+    <config name="installed_paths" value="../../slevomat/coding-standard,../../arty/php-coding-standard/src"/>
+
+    <rule ref="./rules/base.xml"/>
+    <rule ref="./rules/arty.xml"/>
+    <rule ref="./rules/psr.xml"/>
+    <rule ref="./rules/slevomat.xml"/>
+</ruleset>
