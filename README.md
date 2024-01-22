@@ -12,7 +12,7 @@ it includes :
 Installation with composer :
 
 ```bash
-composer require etsglobal/php-static-analysis --dev
+composer require arty/php-coding-standard --dev
 ```
 
 ## Usage
@@ -51,7 +51,7 @@ $ ./vendor/bin/phpstan analyse --level=max src
 
 ### PHPMD
 
-In your project, create a `pphmd.xml` file and fill it up with :
+In your project, create a `phpmd.xml` file and fill it up with :
 
 ```xml
 <?xml version="1.0"?>
@@ -64,7 +64,7 @@ In your project, create a `pphmd.xml` file and fill it up with :
         Arty ruleset
     </description>
 
-    <rule ref="./vendor/etsglobal/php-static-analysis/lib/phpmd/phpmd.xml"/>
+    <rule ref="./vendor/arty/php-coding-standard/lib/phpmd/phpmd.xml"/>
 </ruleset>
 ```
 
