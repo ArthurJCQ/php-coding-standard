@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch latest changes
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
       - name: Prepare/restore dependencies cache
-        uses: actions/cache@v4
+        uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2
         with:
           # NOTE: the allows to reuse it if the composer.json has not changed
           key: composer/${{ runner.os }}/${{ hashFiles('**/composer.json') }}
@@ -22,7 +22,7 @@ jobs:
             composer.lock
             vendor/
       - name: Install/update dependencies
-        uses: php-actions/composer@v6
+        uses: php-actions/composer@8a65f0d3c6a1d17ca4800491a40b5756a4c164f3
         with:
           php_version: ${{ env.PHP_VERSION }}
           args: --ignore-platform-reqs
@@ -37,13 +37,13 @@ jobs:
         tool: [phpcs, phpmd, phpstan, phpunit]
     steps:
       - name: Setup PHP ${{ env.PHP_VERSION }} environment
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@6d7209f44a25a59e904b1ee9f3b0c33ab2cd888d
         with:
           php-version: ${{ env.PHP_VERSION }}
       - name: Fetch lastest changes
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
       - name: Restore dependencies cache
-        uses: actions/cache@v4
+        uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2
         with:
           key: composer/${{ runner.os }}/${{ hashFiles('**/composer.json') }}
           path: |
@@ -52,7 +52,7 @@ jobs:
       - name: Run ${{ matrix.tool }}
         run: make ${{ matrix.tool }}-ci
       - name: Upload ${{ matrix.tool }} reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@694cdabd8bdb0f10b2cea11669e1bf5453eed0a6
         if: always()
         with:
           name: ${{ matrix.tool }}-reports
@@ -70,18 +70,18 @@ jobs:
 
       # NOTE: only phpunit, phpcs generate reports
       - name: Download phpunit reports
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@6b208ae046db98c579e8a3aa621ab581ff575935
         with:
           name: phpunit-reports
           path: build/
       - name: Download phpcs reports
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@6b208ae046db98c579e8a3aa621ab581ff575935
         with:
           name: phpcs-reports
           path: build/
 
       - name: Report analisys results
-        uses: mikepenz/action-junit-report@v4
+        uses: mikepenz/action-junit-report@b1b7f659602565970688b2e2588738b9398e895d
         with:
           check_name: See PHP code quality reports
           report_paths: build/reports/*.xml

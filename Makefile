@@ -24,12 +24,12 @@ phpstan-ci: prepare-ci ## Run PHPStan (CI)
 	EXTRA_ARGS="--error-format=github --no-progress" $(MAKE) phpstan
 .PHONY: phpstan phpstan-ci
 
-#unit-tests: phpunit ## Run unit tests (alias to phpunit)
-#phpunit: ## Run PHPUnit
-#	vendor/bin/phpunit --exclude-group=functional $(EXTRA_ARGS)
-#phpunit-ci: prepare-ci ## Run unit tests (CI)
-#	EXTRA_ARGS="--log-junit $(REPORTS_DIR)/unit-tests.junit.xml" $(MAKE) unit-tests
-#.PHONY: unit-tests unit-tests-ci
+unit-tests: phpunit ## Run unit tests (alias to phpunit)
+phpunit: ## Run PHPUnit
+	vendor/bin/phpunit --exclude-group=functional $(EXTRA_ARGS)
+phpunit-ci: prepare-ci ## Run unit tests (CI)
+	EXTRA_ARGS="--log-junit $(REPORTS_DIR)/unit-tests.junit.xml" $(MAKE) unit-tests
+.PHONY: unit-tests unit-tests-ci
 
 prepare-ci:
 	@mkdir -p build/reports
