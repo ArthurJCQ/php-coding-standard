@@ -257,7 +257,11 @@
     <!-- Looks for useless variables. -->
     <rule ref="SlevomatCodingStandard.Variables.UselessVariable"/>
     <!-- Forbid Attributes and target to be on the same line -->
-    <rule ref="SlevomatCodingStandard.Attributes.AttributeAndTargetSpacing"/>
+    <rule ref="SlevomatCodingStandard.Attributes.AttributeAndTargetSpacing">
+        <properties>
+            <property name="allowOnSameLine" type="boolean" value="true" />
+        </properties>
+    </rule>
     <!-- Forbid more than one Attribute in one #[] -->
     <rule ref="SlevomatCodingStandard.Attributes.DisallowAttributesJoining"/>
     <!-- Requires that attributes are always after documentation comment. -->
