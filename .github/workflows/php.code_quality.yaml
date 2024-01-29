@@ -81,7 +81,7 @@ jobs:
           path: build/
 
       - name: Report analisys results
-        uses: mikepenz/action-junit-report@b1b7f659602565970688b2e2588738b9398e895d
+        uses: mikepenz/action-junit-report@5f47764eec0e1c1f19f40c8e60a5ba47e47015c5
         with:
           check_name: See PHP code quality reports
           report_paths: build/reports/*.xml
