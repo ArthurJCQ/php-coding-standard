@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch latest changes
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+        uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633
       - name: Prepare/restore dependencies cache
         uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2
         with:
@@ -41,7 +41,7 @@ jobs:
         with:
           php-version: ${{ env.PHP_VERSION }}
       - name: Fetch lastest changes
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+        uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633
       - name: Restore dependencies cache
         uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2
         with:
