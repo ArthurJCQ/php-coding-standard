@@ -70,12 +70,12 @@ jobs:
 
       # NOTE: only phpunit, phpcs generate reports
       - name: Download phpunit reports
-        uses: actions/download-artifact@6b208ae046db98c579e8a3aa621ab581ff575935
+        uses: actions/download-artifact@65a9edc5881444af0b9093a5e628f2fe47ea3b2e
         with:
           name: phpunit-reports
           path: build/
       - name: Download phpcs reports
-        uses: actions/download-artifact@6b208ae046db98c579e8a3aa621ab581ff575935
+        uses: actions/download-artifact@65a9edc5881444af0b9093a5e628f2fe47ea3b2e
         with:
           name: phpcs-reports
           path: build/
