@@ -52,7 +52,7 @@ jobs:
       - name: Run ${{ matrix.tool }}
         run: make ${{ matrix.tool }}-ci
       - name: Upload ${{ matrix.tool }} reports
-        uses: actions/upload-artifact@26f96dfa697d77e81fd5907df203aa23a56210a8
+        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808
         if: always()
         with:
           name: ${{ matrix.tool }}-reports
