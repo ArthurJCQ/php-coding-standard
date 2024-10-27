@@ -8,4 +8,4 @@ parameters:
 		- tests/bootstrap.php
 		- vendor/squizlabs/php_codesniffer/src/Util/Tokens.php
 	excludePaths:
-			- %currentWorkingDirectory%/tests/ArtyCodingStandard/Sniffs/*/data/*
+		- %currentWorkingDirectory%/tests/ArtyCodingStandard/Sniffs/*/data/*
