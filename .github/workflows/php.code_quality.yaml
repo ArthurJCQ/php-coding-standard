@@ -14,7 +14,7 @@ jobs:
       - name: Fetch latest changes
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: Prepare/restore dependencies cache
-        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830
         with:
           # NOTE: the allows to reuse it if the composer.json has not changed
           key: composer/${{ runner.os }}/${{ hashFiles('**/composer.json') }}
@@ -43,7 +43,7 @@ jobs:
       - name: Fetch lastest changes
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: Restore dependencies cache
-        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830
         with:
           key: composer/${{ runner.os }}/${{ hashFiles('**/composer.json') }}
           path: |
