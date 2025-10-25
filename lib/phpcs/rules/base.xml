@@ -62,6 +62,8 @@
     <rule ref="Generic.PHP.DisallowShortOpenTag"/>
     <!-- Forbid `php_sapi_name()` function -->
     <rule ref="Generic.PHP.SAPIUsage"/>
+    <!-- Require space after language constructs -->
+    <rule ref="Generic.WhiteSpace.LanguageConstructSpacing" />
 
     <!-- Forbid comments starting with # -->
     <rule ref="PEAR.Commenting.InlineComment"/>
@@ -154,8 +156,6 @@
     <rule ref="Squiz.WhiteSpace.CastSpacing"/>
     <!-- Forbid blank line after function opening brace -->
     <rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace"/>
-    <!-- Require space after language constructs -->
-    <rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/>
     <!-- Require space around logical operators -->
     <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
     <!-- Forbid spaces around `->` operator -->
