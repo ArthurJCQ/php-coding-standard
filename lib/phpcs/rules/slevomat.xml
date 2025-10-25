@@ -235,10 +235,10 @@
         <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification" />
     </rule>
     <!-- Checks format of union type hints. -->
-    <rule ref="SlevomatCodingStandard.TypeHints.UnionTypeHintFormat">
+    <rule ref="SlevomatCodingStandard.TypeHints.DNFTypeHintFormat">
         <properties>
             <!-- Union type must be separated by | without spaces -->
-            <property name="withSpaces" value="no"/>
+            <property name="withSpacesAroundOperators" value="no"/>
         </properties>
     </rule>
     <!-- Reports useless @var annotation (or whole documentation comment) for constants because the type of constant is always clear. -->

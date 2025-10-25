@@ -17,7 +17,7 @@ phpmd-ci: prepare-ci ## Run PHP Mess Detector (CI)
 	PHPMD_FORMAT="github" $(MAKE) phpmd
 .PHONY: phpmd phpmd-ci
 
-PHPSTAN_LEVEL ?= max
+PHPSTAN_LEVEL ?= 9
 phpstan: ## Run PHPStan
 	vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=-1 --level=$(PHPSTAN_LEVEL) $(EXTRA_ARGS) src tests
 phpstan-ci: prepare-ci ## Run PHPStan (CI)

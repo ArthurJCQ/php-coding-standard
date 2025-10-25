@@ -26,27 +26,26 @@
     <!-- Forbid alias functions, i.e. `sizeof()`, `delete()` -->
     <rule ref="Generic.PHP.ForbiddenFunctions">
         <properties>
-            <property name="forbiddenFunctions" type="array"
-                      value="
-                    chop => rtrim,
-                    close => closedir,
-                    delete => unset,
-                    doubleval => floatval,
-                    fputs => fwrite,
-                    ini_alter => ini_set,
-                    is_double => is_float,
-                    is_integer => is_int,
-                    is_long => is_int,
-                    is_null => null,
-                    is_real => is_float,
-                    is_writeable => is_writable,
-                    join => implode,
-                    key_exists => array_key_exists,
-                    pos => current,
-                    show_source => highlight_file,
-                    sizeof => count,
-                    strchr => strstr
-                "/>
+            <property name="forbiddenFunctions" type="array">
+                <element key="chop" value="rtrim" />
+                <element key="close" value="closedir" />
+                <element key="delete" value="unset" />
+                <element key="doubleval" value="floatval" />
+                <element key="fputs" value="fwrite" />
+                <element key="ini_alter" value="ini_set" />
+                <element key="is_double" value="is_float" />
+                <element key="is_integer" value="is_int" />
+                <element key="is_long" value="is_int" />
+                <element key="is_null" value="null" />
+                <element key="is_real" value="is_float" />
+                <element key="is_writeable" value="is_writable" />
+                <element key="join" value="implode" />
+                <element key="key_exists" value="array_key_exists" />
+                <element key="pos" value="current" />
+                <element key="show_source" value="highlight_file" />
+                <element key="sizeof" value="count" />
+                <element key="strchr" value="strstr" />
+            </property>
         </properties>
     </rule>
     <!-- Forbid useless inline string concatenation -->
