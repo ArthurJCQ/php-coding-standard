@@ -37,7 +37,7 @@ jobs:
         tool: [phpcs, phpmd, phpstan, phpunit]
     steps:
       - name: Setup PHP ${{ env.PHP_VERSION }} environment
-        uses: shivammathur/setup-php@9e72090525849c5e82e596468b86eb55e9cc5401
+        uses: shivammathur/setup-php@bf6b4fbd49ca58e4608c9c89fba0b8d90bd2a39f
         with:
           php-version: ${{ env.PHP_VERSION }}
       - name: Fetch lastest changes
