@@ -7,9 +7,9 @@
     "php": "^8.4",
     "squizlabs/php_codesniffer": "^4.0",
     "slevomat/coding-standard": "^8.24",
-    "phpmd/phpmd": "^2.15",
     "phpstan/phpstan": "^2.1",
-    "phpstan/phpstan-symfony": "^2.0"
+    "phpstan/phpstan-symfony": "^2.0",
+    "phpat/phpat": "^0.12.3"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",

@@ -2,6 +2,7 @@ includes:
     - vendor/phpstan/phpstan-phpunit/extension.neon
     - vendor/phpstan/phpstan-phpunit/rules.neon
     - lib/phpstan/phpstan.neon
+	- vendor/phpat/phpat/extension.neon
 
 parameters:
 	bootstrapFiles:
