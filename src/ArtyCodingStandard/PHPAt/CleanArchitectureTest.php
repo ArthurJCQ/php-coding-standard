@@ -72,7 +72,7 @@ final class CleanArchitectureTest
             ->classes(Selector::inNamespace('Doctrine'))
             ->because(
                 'Application layer must not depend on persistence concerns'
-                . ' — use Domain repository interfaces instead'
+                . ' — use Domain repository interfaces instead',
             );
     }
 }
