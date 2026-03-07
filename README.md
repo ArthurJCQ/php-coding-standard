@@ -5,7 +5,7 @@ This is the coding style tools config I use everyday on my projects.
 it includes :
 - PHPCS for code sniffing.
 - PHPStan for static bug finding into code.
-- PHPMD for static performance analysis (complexity, unused expressions, optimizing).
+- PHPAt as phpstan extension for architecture validation
 
 ## Installation
 
@@ -49,26 +49,16 @@ Run it with :
 $ ./vendor/bin/phpstan analyse --level=max src
 ```
 
-### PHPMD
+### PHPAT
 
-In your project, create a `phpmd.xml` file and fill it up with :
+Validate Architecture.
 
-```xml
-<?xml version="1.0"?>
-<ruleset name="Arty ruleset"
-         xmlns="http://pmd.sf.net/ruleset/1.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd"
-         xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd">
-    <description>
-        Arty ruleset
-    </description>
+A minimal Clean Architecture validation is provided, activate it by adding this to your phpstan.neon:
 
-    <rule ref="./vendor/arty/php-coding-standard/lib/phpmd/phpmd.xml"/>
-</ruleset>
-```
-
-Run it with :
-```bash
-$ ./vendor/bin/phpmd src text phpmd.xml
+```neon
+services:
+    -
+        class: ArtyCodingStandard\PHPAt\CleanArchitectureTest
+        tags:
+            - phpat.test
 ```
