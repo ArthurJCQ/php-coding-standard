@@ -10,7 +10,7 @@ use PHPat\Test\PHPat;
 
 final class CleanArchitectureTest
 {
-    public function test_domain_does_not_depend_on_application(): Rule
+    public function testDomainDoesNotDependOnApplication(): Rule
     {
         return PHPat::rule()
             ->classes(Selector::inNamespace('App\Domain'))
@@ -19,7 +19,7 @@ final class CleanArchitectureTest
             ->because('Domain is the core layer and must remain independent of outer layers');
     }
 
-    public function test_domain_does_not_depend_on_infrastructure(): Rule
+    public function testDomainDoesNotDependOnInfrastructure(): Rule
     {
         return PHPat::rule()
             ->classes(Selector::inNamespace('App\Domain'))
@@ -28,7 +28,7 @@ final class CleanArchitectureTest
             ->because('Domain must not know about infrastructure concerns (DB, HTTP, etc.)');
     }
 
-    public function test_domain_does_not_depend_on_symfony(): Rule
+    public function testDomainDoesNotDependOnSymfony(): Rule
     {
         return PHPat::rule()
             ->classes(Selector::inNamespace('App\Domain'))
@@ -37,7 +37,7 @@ final class CleanArchitectureTest
             ->because('Domain must be framework-agnostic');
     }
 
-    public function test_domain_does_not_depend_on_doctrine(): Rule
+    public function testDomainDoesNotDependOnDoctrine(): Rule
     {
         return PHPat::rule()
             ->classes(Selector::inNamespace('App\Domain'))
@@ -46,7 +46,7 @@ final class CleanArchitectureTest
             ->because('Domain must not depend on persistence concerns');
     }
 
-    public function test_application_does_not_depend_on_infrastructure(): Rule
+    public function testApplicationDoesNotDependOnInfrastructure(): Rule
     {
         return PHPat::rule()
             ->classes(Selector::inNamespace('App\Application'))
@@ -55,7 +55,7 @@ final class CleanArchitectureTest
             ->because('Application layer must depend on Domain abstractions, not Infrastructure implementations');
     }
 
-    public function test_application_does_not_depend_on_symfony(): Rule
+    public function testApplicationDoesNotDependOnSymfony(): Rule
     {
         return PHPat::rule()
             ->classes(Selector::inNamespace('App\Application'))
@@ -64,12 +64,15 @@ final class CleanArchitectureTest
             ->because('Application use-cases must be framework-agnostic');
     }
 
-    public function test_application_does_not_depend_on_doctrine(): Rule
+    public function testApplicationDoesNotDependOnDoctrine(): Rule
     {
         return PHPat::rule()
             ->classes(Selector::inNamespace('App\Application'))
             ->shouldNotDependOn()
             ->classes(Selector::inNamespace('Doctrine'))
-            ->because('Application layer must not depend on persistence concerns — use Domain repository interfaces instead');
+            ->because(
+                'Application layer must not depend on persistence concerns'
+                . ' — use Domain repository interfaces instead'
+            );
     }
 }
